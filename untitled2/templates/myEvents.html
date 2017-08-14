@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 50px;
+
+    }
+
+
+      nav {
+        foverflow: hidden;
+        background-color: blue;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    .container-fluid {
+    background-size: 100% 100%;
+    background-attachment: fixed;
+
+}
+      #wrapper{
+          background-image: url("http://res.cloudinary.com/freas-events/image/upload/q_92/v1502322116/party1_vd1ukz.jpg");
+      }
+      body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  </style>
+    <title>Title</title>
+</head>
+<body id="wrapper">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Freas</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('createEvent')}}">Create Event</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group input-group">
+          <input type="text" class="form-control" placeholder="Search..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('logout')}}"><span class="glyphicon glyphicon-user"></span> logut</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container-fluid">
+    <div class="col-sm-20 well">
+            <h3>Manage Events</h3>
+  </div>
+</div>
+<div class="col-sm-7">
+{% for event in events %}
+       <div class="col-sm-3 well">
+
+           <p>John</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+        </div>
+<div class="col-sm-9">
+          <div class="well">
+        <p>{{event.name}}<br>
+            {{event.description}}<br>
+            Fee:{{event.fee}}<br>
+            Date:{{event.date}}
+            {{event.time}}<br>
+            Venue: {{event.location}}<br>
+            Organised by:{{event.organisers}}<br>
+            Category:{{event.category}}<br>
+            <a href="{{url_for('edit', event_id = event.id)}}" ><button class="btn btn-primary">Edit</button></a>
+            <a href="#"><button class="btn btn-primary">Delete</button></a>
+        </p>
+
+               </div>
+        </div>
+{% endfor %}
+</div>
+
+<div class="container-fluid">
+    <div class="col-sm-20 well">
+        <h3>Upcoming Events</h3>
+        <img src="paris.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Paris</strong></p>
+        <p>Fri. 27 November 2015</p>
+        <button class="btn btn-primary">Info</button>
+      </div>
+</div>
+</body>
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col 16 s5">
+                <h5 class="white-text">FreasEventory Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+      © 2017 Copyright <a class="brown-text text-lighten-5">Arms</a>
+      </div>
+          </div>
+        </footer>
+</html>

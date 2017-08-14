@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body><h1> Edit Event </h1>
+
+<form action="{{ url_for('edit', ename = event.name)}}" method='post'>
+
+
+    <p>Name:</p>
+    <input type='text' size='30' name='name' placeholder='{{ event.name }}'>
+    <p>Organisers:</p>
+    <input type='text' size='30' name='organisers' placeholder='{{ event.organisers }}'>
+    <p>Date:</p>
+    <input type='date' size='30' name='date' placeholder='{{ event.date }}'>
+    <p>Time:</p>
+    <input type='time' size='30' name='time' placeholder='{{ event.time }}'>
+    <p>Description:</p>
+    <input type='text' size='30' name='description' placeholder='{{ event.description }}'>
+    <p>Fee:</p>
+    <input type='text' size='30' name='fee' placeholder='{{ event.fee }}'>
+    <p>Category:
+    <p>
+
+        {% if event.category == 'Festival' %}
+            <dd><input type='radio' name='category' value='Festival' checked>Festival</dd>
+        {% else %}
+            <dd><input type='radio' name='category' value='Festival'>Festival</dd>
+        {% endif %}
+
+    {% if event.category == 'Show' %}
+        <dd><input type='radio' name='category' value='Show' checked>Show</dd>
+
+    {% else %}
+        <dd><input type='radio' name='category' value='Show'>Show</dd>
+    {% endif %}
+
+    {% if event.category == 'Party' %}
+        <dd><input type='radio' name='category' value='Party' checked>Party</dd>
+
+    {% else %}
+        <dd><input type='radio' name='category' value='Party'>Party</dd>
+
+    {% endif %}
+
+
+    {% if event.category =='Sports' %}
+        <dd><input type='radio' name='category' value='Sports' checked>Sports</dd>
+    {% else %}
+        <dd><input type='radio' name='category' value='Sports'>Sports</dd>
+    {% endif %}
+
+    {% if event.category == 'Crusade' %}
+        <dd><input type="radio" name="category" value="Crusade" checked>Crusade</dd>
+    {% else %}
+        <dd><input type="radio" name="category" value="Crusade">Crusade</dd>
+    {% endif %}
+
+    {% if event.category == 'Other' %}
+        <dd><input type="radio" name="category" value="Other" checked>Other</dd>
+    {% else %}
+        <dd><input type="radio" name="category" value="Other">Other</dd>
+    {% endif %}
+
+    <input type='submit' value='Edit' formmethod="post" >
+
+
+    <a href={{ url_for('event') }}> Cancel </a>
+
+
+
+</form>
+</body>
+</html>
+

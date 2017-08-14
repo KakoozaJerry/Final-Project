@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>freas  events</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 50px;
+
+    }
+
+
+      nav {
+        foverflow: hidden;
+        background-color: blue;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    .container-fluid {
+    background-size: 100% 100%;
+    background-attachment: fixed;
+
+}
+      #wrapper{
+          background-image: url("http://res.cloudinary.com/freas-events/image/upload/q_92/v1502322116/party1_vd1ukz.jpg");
+      }
+      body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  </style>
+</head>
+<body id="wrapper" >
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" >Freas</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('signup')}}">Create Event</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group input-group">
+          <input type="text" class="form-control" placeholder="Search..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> login</a></li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('signup')}}"><span class="glyphicon glyphicon-user"></span>sign up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 well">
+        <div class="well">
+        <p><a href="#">Categories</a></p>
+        <p>
+                  <span class="label label-default">Birth day parties</span>
+                  <span class="label label-primary">Weddings</span>
+                  <span class="label label-success">Camps</span>
+                  <span class="label label-info">sports and gaming</span>
+                  <span class="label label-warning">Drink ups</span>
+                  <span class="label label-danger">Music</span>
+                    <span class="label label-primary">Others</span>
+        </p>
+      </div>
+
+
+      <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <p><strong>YOLO!</strong></p>
+         Find out what is trending in your area on one click
+      </div>
+<div>
+      <p><a href="#">Eventory Magazine</a></p>
+    </div>
+    </div>
+
+    <div class="col-sm-7">
+
+      <div class="row jumbotron ">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body ">
+              <p contenteditable="true">FREAS EVENTORY</p>
+                <p> Giving you a previlage to create and explore  events of your wildest dreams in just one place</p>
+              <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+            {% for event in events %}
+       <div class="col-sm-3">
+          <div class="well">
+           <p>John</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+<div class="col-sm-9">
+          <div class="well">
+        <p>{{event.name}}<br>
+            {{event.description}}<br>
+            Fee:{{event.fee}}<br>
+            Date:{{event.date}}
+            {{event.time}}<br>
+            Venue: {{event.location}}<br>
+            Organised by:{{event.organisers}}<br>
+            Category:{{event.category}}
+        </p>
+
+               </div>
+        </div>
+{% endfor %}
+
+
+
+
+      <div class="thumbnail">
+        <p>Upcoming Events:</p>
+        <img src="paris.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Paris</strong></p>
+        <p>Fri. 27 November 2015</p>
+        <button class="btn btn-primary">Info</button>
+      </div>
+
+
+</body>
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">FreasEventory Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job.<br> Any amount would help support and continue development on this project and is greatly<br> appreciated.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+      © 2017 Copyright <a class="brown-text text-lighten-5">Arms</a>
+      </div>
+          </div>
+        </footer>
+</html>

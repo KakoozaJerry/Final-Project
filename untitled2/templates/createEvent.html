@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+        background-image: url("http://res.cloudinary.com/projacts/image/upload/v1502284992/back_bofdvf.jpg;")
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #dfd27c;
+      height: 100%;
+    }
+    .develop{margin-left: 10%; margin-right: 10%;}
+        .btn{
+            margin-left:10%;
+            margin-bottom:10%;
+
+        }
+        .centre{
+            margin-left: 20%;
+        }
+</style>
+</head>
+<body>
+
+
+<div  class="mdl-grid centre">
+<div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
+<form action="#" method = 'post'>
+    <div class="mdl-card__title"><h4 class="mdl-card__title-text" >Create a new Event</h4></div>
+
+
+    <div class="develop">
+<p >
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+       <input align="middle" class="mdl-textfield__input" type="text" id="sample3" name='name' required>
+         <label class="mdl-textfield__label" for="sample3">Event Name</label>
+    </div>
+</p>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <textarea class="mdl-textfield__input" type="text" id="sample3" name='description' required></textarea>
+         <label class="mdl-textfield__label" for="sample3">Description</label>
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+       <input class="mdl-textfield__input" type="text" id="sample3" name='fee' required>
+         <label class="mdl-textfield__label" for="sample3">Fee</label>
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+       <input class="mdl-textfield__input" type="text" id="sample3" name='location' required>
+         <label class="mdl-textfield__label" for="sample3">Location</label>
+    </div>
+    <br>
+
+
+     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+       <input class="mdl-textfield__input" type="date" id="sample3" name='date' required>
+
+    </div>
+    <br>
+
+     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+       <input class="mdl-textfield__input" type="time" id="sample3" name='time' required>
+         <label class="mdl-textfield__label" for="sample3">Time</label>
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+       <input class="mdl-textfield__input" type="text" id="sample3" name='organisers' required>
+         <label class="mdl-textfield__label" for="sample3">Organisers</label>
+    </div>
+    <br>
+
+     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+       <input class="mdl-textfield__input" type="text" id="sample3" name='category' required>
+         <label class="mdl-textfield__label" for="sample3">Category</label>
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <select name="privacy" class="mdl-textfield__input">
+            <option name="Public">Public</option>
+            <option name="Private">Private</option>
+        </select>
+    </div>
+
+
+        </div>
+
+
+<input type='submit' value='Create' class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+
+    <a href="{{url_for('home')}}">
+<input type="button" value="cancel" class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+</a>
+</form>
+</div>
+</div>
+
+</body>
+</html>
